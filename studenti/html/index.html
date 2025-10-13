@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveHub | Dealer Auto Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">DriveHub</a>
+            <nav>
+                <a href="#hero">Acasă</a>
+                <a href="#inventory">Inventar</a>
+                <a href="#">Despre Noi</a>
+                <a href="#">Contact</a>
+            </nav>
+            <a href="#" class="cta-button">021 999 999</a>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div id="hero-content">
+            <h1>Găsește Mașina Visurilor Tale Astăzi</h1>
+            <p>Descoperă cea mai largă selecție de vehicule noi și rulate, certificate.</p>
+            <a href="#inventory" class="cta-button">Explorează Inventarul</a>
+        </div>
+    </section>
+
+    <section id="filter-bar">
+        <div class="container filter-group">
+            <select id="filter-marca">
+                <option value="">Toate Mărcile</option>
+                <option value="BMW">BMW</option>
+                <option value="Audi">Audi</option>
+                <option value="Mercedes">Mercedes</option>
+            </select>
+            <select id="filter-an">
+                <option value="">Toți Anii</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+            <input type="number" id="filter-pret-min" placeholder="Preț Min">
+            <input type="number" id="filter-pret-max" placeholder="Preț Max">
+            <button id="search-btn">Caută</button>
+        </div>
+    </section>
+
+    <section id="inventory">
+        <div class="container">
+            <h2>Inventarul Nostru (Primele 6)</h2>
+            <div class="inventory-grid" id="car-list">
+                <div class="car-card" data-marca="BMW" data-an="2024">
+                    <img src="https://picsum.photos/300/200?random=1" alt="BMW Seria 3">
+                    <div class="card-body">
+                        <h3>BMW Seria 3</h3>
+                        <p class="car-card-price">€ 35,000</p>
+                        <p>An: 2024 | Km: 5,000</p>
+                        <a href="#" class="cta-button" style="margin-top: 10px;">Detalii</a>
+                    </div>
+                </div>
+                <div class="car-card" data-marca="Audi" data-an="2023">
+                    <img src="https://picsum.photos/300/200?random=2" alt="Audi A4">
+                    <div class="card-body">
+                        <h3>Audi A4</h3>
+                        <p class="car-card-price">€ 28,500</p>
+                        <p>An: 2023 | Km: 15,000</p>
+                        <a href="#" class="cta-button" style="margin-top: 10px;">Detalii</a>
+                    </div>
+                </div>
+                <div class="car-card" data-marca="Mercedes" data-an="2022">
+                    <img src="https://picsum.photos/300/200?random=3" alt="Mercedes C-Class">
+                    <div class="card-body">
+                        <h3>Mercedes C-Class</h3>
+                        <p class="car-card-price">€ 32,000</p>
+                        <p>An: 2022 | Km: 25,000</p>
+                        <a href="#" class="cta-button" style="margin-top: 10px;">Detalii</a>
+                    </div>
+                </div>
+                <div class="car-card" data-marca="BMW" data-an="2022">
+                    <img src="https://picsum.photos/300/200?random=4" alt="BMW X5">
+                    <div class="card-body">
+                        <h3>BMW X5</h3>
+                        <p class="car-card-price">€ 45,000</p>
+                        <p>An: 2022 | Km: 30,000</p>
+                        <a href="#" class="cta-button" style="margin-top: 10px;">Detalii</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DriveHub. Toate drepturile rezervate.</p>
+    </footer>
+    <script src="/scripts/index.js" defer></script>
+</body>
+</html>
