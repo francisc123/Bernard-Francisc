@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Aici ar trebui să fie CSS-ul tău pentru a face pagina să arate bine,
+           folosind clasele definite mai jos: .profile-title, .profile-card,
+           .form-group, .button-container, .modal etc. */
+           
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        
+        .profile-card {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-title, .form-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Asigură că padding-ul nu mărește lățimea totală */
+        }
+        
+        .form-text {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px; /* Echivalentul lui ms-md-2 */
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3F51B5;
+        }
+        .btn-primary:hover {
+            background-color: #303f9f;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        /* Stiluri pentru Modal (simplificate) */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none; /* Ascunde inițial */
+            z-index: 1000;
+        }
+        .modal {
+            background-color: white;
+            border-radius: 5px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 400px;
+            z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            display: none; /* Ascunde inițial */
+        }
+        .modal-header {
+            padding: 15px;
+            background-color: #dc3545;
+            color: white;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-body {
+            padding: 15px;
+        }
+        .modal-footer {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            text-align: right;
+        }
+        .modal-footer .btn {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="profile-title">Your Profile</h2>
+
+    <div class="profile-card">
+        <div>
+            <h5 class="form-title" style="margin-bottom: 30px;">Personal informations</h5>
+
+            <form action="/Account/UpdateProfile" method="post" id="updateProfileForm">
+                
+                <div class="form-group">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" class="form-input" id="Name" name="Name" value="John Doe" required />
+                </div>
+                <div class="form-group">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-input" id="Email" name="Email" value="john.doe@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="PhoneNumber" class="form-label">Phone</label>
+                    <input type="text" class="form-input" id="PhoneNumber" name="PhoneNumber" value="0712 345 678" />
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" class="form-input" id="Password" name="Password" />
+                    <small class="form-text">Change data</small>
+                </div>
+                
+                <div class="button-container" style="margin-top: 20px;">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+
+            <div class="button-container">
+                
+                <form action="/Account/Logout" method="post">
+                    <button type="submit" class="btn btn-primary">Log out</button>
+                </form>
+
+                <button type="button" class="btn btn-danger" id="openDeleteModal">
+                    Delete Account
+                </button>
+            </div>
+
+            <div class="modal-backdrop" id="modalBackdrop"></div>
+            <div class="modal" id="confirmDeleteModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteLabel">Confirm account deletion</h5>
+                        <button type="button" class="btn-close" id="closeDeleteModal" style="background: none; border: none; color: white; font-size: 1.5em;">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete your account?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="cancelDeleteModal">Cancel</button>
+
+                        <form action="/Account/DeleteAccount" method="post">
+                            <button type="submit" class="btn btn-danger">Yes, delete account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

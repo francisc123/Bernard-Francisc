@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         formData.append('Email', email);
                         formData.append('Message', message);
 
-                        // ACEASTĂ ADRESĂ ESTE PENTRU BACKEND-UL TĂU ȘI VA EȘUA FĂRĂ UN SERVER CONFIGURAT
                         const response = await fetch('/Admin/MessagesFromUsers', {
                             method: 'POST',
                             body: formData
@@ -69,14 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
         async function initMap() {
             const location = { lat: 44.4268, lng: 26.1025 };
 
-            // Asigurați-vă că includeți API-ul Google Maps în eticheta script de mai jos
             const { Map } = await google.maps.importLibrary("maps");
             const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
             const map = new Map(document.getElementById("map"), {
                 zoom: 13,
                 center: location,
-                mapId: "YOUR_MAP_ID", // Înlocuiește cu Map ID-ul tău
+                mapId: "YOUR_MAP_ID", 
             });
 
             new AdvancedMarkerElement({
