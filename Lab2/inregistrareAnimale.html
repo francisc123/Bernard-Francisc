@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formular de înregistrare animale</title>
+  <style>
+    /* ===== FUNDAL PAGINĂ ===== */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #e8f5f3; /* verde-albăstrui pal */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* ===== CARD PRINCIPAL ===== */
+    form {
+      background-color: #ffffff;
+      padding: 35px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      width: 420px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    form:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ===== TITLU ===== */
+    h2 {
+      text-align: center;
+      color: #00796b; /* teal închis */
+      margin-bottom: 8px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+      font-size: 0.95em;
+      margin-bottom: 25px;
+    }
+
+    /* ===== CÂMPURI ===== */
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 2px solid #cfd8dc;
+      border-radius: 6px;
+      font-size: 0.95em;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #009688; /* teal accent */
+      box-shadow: 0 0 6px rgba(0, 150, 136, 0.3);
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    /* ===== FIELDSET-URI ===== */
+    fieldset {
+      border: 2px solid #80cbc4;
+      border-radius: 10px;
+      margin-top: 15px;
+      padding: 10px 15px 15px 15px;
+      background-color: #f1fdfb;
+    }
+
+    legend {
+      color: #00796b;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+
+    /* ===== RADIO & CHECKBOX ===== */
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 5px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      font-weight: normal;
+      color: #222;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      accent-color: #009688;
+      transform: scale(1.1);
+      margin-right: 8px;
+    }
+
+    /* ===== BUTOANE ===== */
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    input[type="submit"],
+    input[type="reset"] {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px 0;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #fff;
+      transition: background-color 0.3s, transform 0.1s ease;
+    }
+
+    input[type="submit"] {
+      background-color: #00796b;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #00695c;
+      transform: translateY(-2px);
+    }
+
+    input[type="reset"] {
+      background-color: #90a4ae;
+    }
+
+    input[type="reset"]:hover {
+      background-color: #78909c;
+      transform: translateY(-2px);
+    }
+
+  </style>
+</head>
+<body>
+
+  <form>
+    <h2>Formular de înregistrare animale</h2>
+    <p>Completați informațiile de mai jos pentru a înregistra animalul dumneavoastră la clinica noastră veterinară.</p>
+
+    <label for="nume-stapan">Nume stăpân:</label>
+    <input type="text" id="nume-stapan" name="nume-stapan" required>
+
+    <label for="telefon">Telefon:</label>
+    <input type="text" id="telefon" name="telefon" required>
+
+    <label for="nume-animal">Nume animal:</label>
+    <input type="text" id="nume-animal" name="nume-animal" required>
+
+    <label for="specie">Specie:</label>
+    <select id="specie" name="specie" required>
+      <option value="">-- Selectează --</option>
+      <option value="caine">Câine</option>
+      <option value="pisica">Pisică</option>
+      <option value="iepure">Iepure</option>
+      <option value="altul">Altul</option>
+    </select>
+
+    <fieldset>
+      <legend>Sexul animalului</legend>
+      <div class="radio-group">
+        <label><input type="radio" name="sex" value="mascul">Mascul</label>
+        <label><input type="radio" name="sex" value="femela">Femelă</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Servicii dorite</legend>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="servicii" value="vaccinare">Vaccinare</label>
+        <label><input type="checkbox" name="servicii" value="deparazitare">Deparazitare</label>
+        <label><input type="checkbox" name="servicii" value="consult">Consult</label>
+      </div>
+    </fieldset>
+
+    <label for="observatii">Observații:</label>
+    <textarea id="observatii" name="observatii"></textarea>
+
+    <div class="buttons">
+      <input type="submit" value="Trimite">
+      <input type="reset" value="Resetează">
+    </div>
+  </form>
+
+</body>
+</html>
