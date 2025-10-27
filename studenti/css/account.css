@@ -1,0 +1,247 @@
+        :root {
+            --color-primary-blue: #3F51B5; /* Albastru principal */
+            --color-secondary-orange: #FF9800; /* Portocaliu pentru CTA */
+            --color-text-dark: #333;
+            --color-text-light: #fff;
+            --color-background-light: #f4f6f9; /* Fundal mai deschis */
+            --color-background-grey: #e8eaf6; /* Fundal secțiune profil (mai deschis decât anterior) */
+            --color-danger: #dc3545;
+            --color-danger-hover: #c82333;
+        }
+
+        /* Reset și stiluri de bază */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+           
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- STILURI HEADERE ȘI FOOTER (Preluat de pe pagina principală) --- */
+        
+        .header {
+            background-color: var(--color-text-light);
+            border-bottom: 1px solid #ddd;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5em;
+            color: var(--color-primary-blue);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover,
+        .nav-menu .active a {
+            color: var(--color-primary-blue);
+        }
+
+        .cta-button {
+            background-color: var(--color-secondary-orange);
+            color: var(--color-text-light);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+
+        .footer {
+            background-color: var(--color-primary-blue);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto; /* Împinge footer-ul în jos */
+        }
+
+        /* --- STILURI PENTRU CONȚINUTUL PAGINII DE PROFIL --- */
+
+        .main-content {
+            flex-grow: 1; /* Permite conținutului să ocupe spațiul rămas */
+            padding: 0;
+        }
+
+        .profile-header-section {
+            background-color: var(--color-background-grey);
+            padding: 50px 5%;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-text-dark);
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .profile-card {
+            max-width: 600px;
+            margin: 0 auto 60px auto; /* Centrat și spațiu jos */
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px; /* Colțuri mai rotunjite */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Umbră mai pronunțată și modernă */
+        }
+
+        .form-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-text-dark);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Spațiu mai mare */
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700; /* Mai gros */
+            font-size: 0.95em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px; /* Padding mai mare */
+            border: 1px solid #cce; /* Culoare mai subtilă pentru chenar */
+            border-radius: 5px; 
+            box-sizing: border-box; 
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-primary-blue);
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Efect de focus modern */
+            outline: none;
+        }
+        
+        .form-text {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px; /* Spațiu mai mare între butoane */
+            margin-top: 20px;
+            justify-content: flex-start; /* Aliniere la stânga */
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--color-text-light);
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-blue);
+        }
+        .btn-primary:hover {
+            background-color: #303f9f;
+        }
+
+        .btn-danger {
+            background-color: var(--color-danger);
+        }
+        .btn-danger:hover {
+            background-color: var(--color-danger-hover);
+        }
+
+        /* --- STILURI MODAL (Ajustate pentru a se potrivi cu noul stil) --- */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none; 
+            z-index: 1000;
+        }
+        .modal {
+            background-color: white;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 450px;
+            z-index: 1001;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            display: none; 
+        }
+        .modal-header {
+            padding: 15px 20px;
+            background-color: var(--color-danger); /* Culoarea roșie */
+            color: white;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            margin: 0;
+        }
+        .modal-body {
+            padding: 20px;
+            font-size: 1.05em;
+        }
+        .modal-footer {
+            padding: 15px 20px;
+            border-top: 1px solid #eee;
+            text-align: right;
+        }
+        .btn-secondary { /* Adăugat pentru butonul de Anulare din modal */
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }

@@ -1,0 +1,166 @@
+
+
+.main-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    width: 100%;
+}
+.header-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1.5rem;
+}
+.main-nav {
+    display: flex; 
+    gap: 1.5rem; 
+    flex-grow: 1;
+    justify-content: center; 
+}
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 0.2rem;
+}
+.cta-button {
+    background-color: #ff8c00;
+    color: #ffffff !important;
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+body {
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3a8a; 
+}
+
+
+.metric-card {
+    border: none !important; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-label {
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.display-5 {
+    font-size: 2.5rem; 
+}
+
+.chart-card, .table-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
+.modern-table {
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0 10px; 
+}
+
+.modern-table thead th {
+    border-bottom: 2px solid #e0e0e0;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #6c757d;
+    padding: 0.75rem 0.5rem;
+}
+
+.modern-table tbody tr {
+    background-color: #f8f9fa;
+    border-radius: 8px; 
+    transition: background-color 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.modern-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.modern-table tbody td {
+    border-top: none;
+    padding: 1rem 0.5rem;
+    color: #343a40;
+}
+
+.form-select {
+    border-radius: 8px;
+    border-color: #ced4da;
+    background-color: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .dashboard-title {
+    color: #90caf9; 
+}
+
+body.dark-mode .metric-card,
+body.dark-mode .chart-card,
+body.dark-mode .table-card {
+    background-color: #2a2a2a !important;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4), -5px -5px 15px rgba(45, 45, 45, 0.2); 
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .metric-card:hover {
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5), -8px -8px 20px rgba(45, 45, 45, 0.3);
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .card-title,
+body.dark-mode h5 {
+    color: #bdbdbd !important;
+}
+
+body.dark-mode .modern-table tbody tr {
+    background-color: #2a2a2a;
+    box-shadow: none; 
+}
+
+body.dark-mode .modern-table tbody tr:hover {
+    background-color: #333333;
+}
+
+body.dark-mode .modern-table tbody td {
+    color: #e0e0e0;
+}
+
+body.dark-mode .modern-table thead th {
+    border-bottom-color: #555;
+    color: #a0a0a0;
+}
+
+body.dark-mode .form-select {
+    background-color: #333333;
+    color: #e0e0e0;
+    border-color: #555555;
+}
