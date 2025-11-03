@@ -4,97 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DriveHub - Profilul Tău</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/account.css">
 </head>
-<body>
-    <header class="header">
-        <a href="#" class="logo">DriveHub</a>
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="#">Acasă</a></li>
-                <li><a href="#">Inventar</a></li>
-                <li><a href="#">Despre Noi</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="active"><a href="#">Account</a></li>
-            </ul>
-        </nav>
-        <a href="tel:021999999" class="cta-button">021 999 999</a>
+<body id="top">
+    
+    <!-- HEADER -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="../html/index.html" class="logo">DriveHub</a>
+            <a href="tel:021999999" class="cta-button">021 999 999</a>
+        </div>
     </header>
 
-    <div class="main-content">
-        <div class="profile-header-section">
-            <h2 class="profile-title">Profilul Tău</h2>
-        </div>
+    <!-- NAV -->
+    <nav class="main-nav-bar">
+        <ul class="nav-menu">
+            <li><a href="../html/index.php">Acasă</a></li>
+            <li><a href="../html/index.php#inventory">Inventar</a></li>
+            <li><a href="#">Despre Noi</a></li>
+            <li><a href="../html/contact.php">Contact</a></li>
+            <li><a href="../html/dashboard.php">Dashboard</a></li>
+            <li class="active"><a href="#">Account</a></li>
+        </ul>
+    </nav>
 
-        <div class="profile-card">
+    <!-- MAIN CONTENT cu GRID -->
+    <div id="grid-wrapper">
+        
+        <!-- MAIN -->
+        <main class="main-content"> 
             
-            <h5 class="form-title">Informații Personale</h5>
+            <!-- HEADER PROFIL -->
+            <div class="profile-header-section">
+                <h2 class="profile-title">Profilul Tău</h2>
+                <p>👤 Bun venit, Andrei Popescu!</p>
+            </div>
 
-            <form action="/Account/UpdateProfile" method="post" id="updateProfileForm">
-                
-                <div class="form-group">
-                    <label for="Name" class="form-label">Nume</label>
-                    <input type="text" class="form-input" id="Name" name="Name" value="John Doe" required />
-                </div>
-                <div class="form-group">
-                    <label for="Email" class="form-label">Email</label>
-                    <input type="email" class="form-input" id="Email" name="Email" value="john.doe@example.com" required />
-                </div>
-                <div class="form-group">
-                    <label for="PhoneNumber" class="form-label">Telefon</label>
-                    <input type="text" class="form-input" id="PhoneNumber" name="PhoneNumber" value="0712 345 678" />
-                </div>
-                <div class="form-group">
-                    <label for="Password" class="form-label">Parolă</label>
-                    <input type="password" class="form-input" id="Password" name="Password" placeholder="Introduceți noua parolă (opțional)" />
-                    <small class="form-text">Lăsați gol pentru a nu schimba parola.</small>
-                </div>
-                
-                <div class="button-container">
-                    <button type="submit" class="btn btn-primary">Salvează Modificările</button>
-                </div>
-            </form>
-
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
-
-            <div class="button-container" style="justify-content: space-between;">
-                
-                <form action="/Account/Logout" method="post">
-                    <button type="submit" class="btn btn-primary">Log out</button>
+            <!-- CARD INFORMAȚII PERSONALE -->
+            <div class="profile-card">
+                <h5 class="form-title"> Informații Personale</h5>
+                <form action="#" method="post" class="form-group-grid">
+                    <div class="form-group">
+                        <label for="firstName">Prenume:</label>
+                        <input type="text" id="firstName" name="firstName" value="Andrei" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Nume:</label>
+                        <input type="text" id="lastName" name="lastName" value="Popescu" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="andrei.popescu@example.com" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon:</label>
+                        <input type="tel" id="phone" name="phone" value="0712 345 678">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary"> Salvează Modificările</button>
+                    </div>
                 </form>
+            </div>
 
+            <!-- CARD SCHIMBARE PAROLĂ -->
+            <div class="profile-card">
+                <h5 class="form-title"> Schimbă Parola</h5>
+                <form action="#" method="post" class="form-group-grid">
+                    <div class="form-group">
+                        <label for="currentPassword">Parola Curentă:</label>
+                        <input type="password" id="currentPassword" name="currentPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Parola Nouă:</label>
+                        <input type="password" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmNewPassword">Confirmă Parola Nouă:</label>
+                        <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-secondary"> Schimbă Parola</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- CARD ACȚIUNI CONT -->
+            <div class="profile-card account-actions">
+                <h5 class="form-title"> Acțiuni Cont</h5>
+                <form action="#" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-primary">🚪 Log out</button>
+                </form>
                 <button type="button" class="btn btn-danger" id="openDeleteModal">
-                    Șterge Contul
+                     Șterge Contul
                 </button>
             </div>
             
-        </div>
+        </main>
+        
+        <!-- ASIDE (Sidebar) -->
+        <aside class="side-info">
+            <h3>Meniu Rapid</h3>
+            <ul class="aside-menu">
+                <li><a href="#"> Setări Notificări</a></li>
+                <li><a href="#"> Istoric Comenzi</a></li>
+                <li><a href="#"> Mașini Favorite</a></li>
+                <li><a href="#"> Statistici Cont</a></li>
+            </ul>
+            
+            <h3 style="margin-top: 25px;">💡 Sfaturi</h3>
+            <p>Actualizează-ți informațiile pentru a primi oferte personalizate.</p>
+        </aside>
 
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal" id="confirmDeleteModal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmDeleteLabel">Confirmă ștergerea contului</h5>
-                    <button type="button" class="btn-close" id="closeDeleteModal" style="background: none; border: none; color: white; font-size: 1.5em; line-height: 1;">&times;</button>
-                </div>
-                <div class="modal-body">
-                    Ești sigur(ă) că vrei să ștergi contul? **Această acțiune este ireversibilă.**
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancelDeleteModal">Anulează</button>
+    </div>
 
-                    <form action="/Account/DeleteAccount" method="post" style="display: inline;">
-                        <button type="submit" class="btn btn-danger">Da, șterge contul</button>
-                    </form>
-                </div>
+    <!-- MODAL CONFIRMARE ȘTERGERE -->
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal" id="confirmDeleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">⚠️ Confirmă ștergerea contului</h5>
+                <button type="button" class="btn-close" id="closeDeleteModal" style="background: none; border: none; color: white; font-size: 1.5em; line-height: 1; cursor: pointer;">&times;</button>
+            </div>
+            <div class="modal-body">
+                Ești sigur(ă) că vrei să ștergi contul? <strong>Această acțiune este ireversibilă.</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelDeleteModal">Anulează</button>
+                <form action="#" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">Da, șterge contul</button>
+                </form>
             </div>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        &copy; 2025 DriveHub. Toate drepturile rezervate.
+        <p>&copy; 2025 DriveHub. Toate drepturile rezervate.</p>
     </footer>
+
+    <!-- BUTON MERGI SUS -->
+    <a href="#top" id="back-to-top">⬆️</a>
+    
+    <script>
+        // Modal pentru ștergere cont
+        const openModalBtn = document.getElementById('openDeleteModal');
+        const closeModalBtn = document.getElementById('closeDeleteModal');
+        const cancelModalBtn = document.getElementById('cancelDeleteModal');
+        const modal = document.getElementById('confirmDeleteModal');
+        const backdrop = document.getElementById('modalBackdrop');
+        
+        openModalBtn.addEventListener('click', function() {
+            modal.style.display = 'block';
+            backdrop.style.display = 'block';
+        });
+        
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+        });
+        
+        cancelModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+        });
+        
+        backdrop.addEventListener('click', function() {
+            modal.style.display = 'none';
+            backdrop.style.display = 'none';
+        });
+        
+        // Validare formular schimbare parolă
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmNewPassword').value;
+            
+            if (newPassword && confirmPassword && newPassword !== confirmPassword) {
+                e.preventDefault();
+                alert('Parolele nu se potrivesc!');
+            }
+        });
+    </script>
 </body>
 </html>

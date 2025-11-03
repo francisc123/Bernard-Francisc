@@ -1,0 +1,85 @@
+
+/* HEADER */
+.main-header {
+    grid-area: header;
+    background-color: var(--color-text-light);
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 5%;
+}
+
+.header-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}
+
+.cta-button {
+    background-color: var(--color-secondary-orange);
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background: #e68a00; /* Folosesc valoarea directă din account.css */
+    transform: translateY(-2px);
+}
+
+/* NAV */
+.main-nav-bar {
+    grid-area: nav;
+    background-color: var(--color-primary-blue);
+    padding: 0.75rem 0;
+}
+
+.nav-menu {
+    /* FLEXBOX pentru navigare */
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-menu a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--color-secondary-orange);
+}
+
+.nav-menu .active a {
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-secondary-orange);
+}
+
+/* Responsive adjustment */
+@media screen and (max-width: 900px) {
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+}

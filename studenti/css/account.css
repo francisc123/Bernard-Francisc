@@ -1,247 +1,434 @@
-        :root {
-            --color-primary-blue: #3F51B5; /* Albastru principal */
-            --color-secondary-orange: #FF9800; /* Portocaliu pentru CTA */
-            --color-text-dark: #333;
-            --color-text-light: #fff;
-            --color-background-light: #f4f6f9; /* Fundal mai deschis */
-            --color-background-grey: #e8eaf6; /* Fundal secțiune profil (mai deschis decât anterior) */
-            --color-danger: #dc3545;
-            --color-danger-hover: #c82333;
-        }
+:root {
+    --color-primary-blue: #3F51B5;
+    --color-secondary-orange: #FF9800;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-background-light: #f4f6f9;
+    --color-background-grey: #e8eaf6;
+    --color-danger: #dc3545;
+}
 
-        /* Reset și stiluri de bază */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-           
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--color-background-light);
-            color: var(--color-text-dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        /* --- STILURI HEADERE ȘI FOOTER (Preluat de pe pagina principală) --- */
-        
-        .header {
-            background-color: var(--color-text-light);
-            border-bottom: 1px solid #ddd;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5em;
-            color: var(--color-primary-blue);
-            text-decoration: none;
-        }
+/* STRUCTURA PRINCIPALĂ - CSS GRID */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+    /* CSS GRID pentru structura principală */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    min-height: 100vh;
+    line-height: 1.6;
+}
 
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
+/* HEADER */
+.main-header {
+    grid-area: header;
+    background-color: var(--color-text-light);
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 5%;
+}
 
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--color-text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-menu a:hover,
-        .nav-menu .active a {
-            color: var(--color-primary-blue);
-        }
+.header-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .cta-button {
-            background-color: var(--color-secondary-orange);
-            color: var(--color-text-light);
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-primary-blue);
+}
 
-        .cta-button:hover {
-            background-color: #e68900;
-        }
+.cta-button {
+    background-color: var(--color-secondary-orange);
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
 
-        .footer {
-            background-color: var(--color-primary-blue);
-            color: var(--color-text-light);
-            text-align: center;
-            padding: 20px 0;
-            margin-top: auto; /* Împinge footer-ul în jos */
-        }
+.cta-button:hover {
+    background: #e68a00;
+    transform: translateY(-2px);
+}
 
-        /* --- STILURI PENTRU CONȚINUTUL PAGINII DE PROFIL --- */
+/* NAV */
+.main-nav-bar {
+    grid-area: nav;
+    background-color: var(--color-primary-blue);
+    padding: 0.75rem 0;
+}
 
-        .main-content {
-            flex-grow: 1; /* Permite conținutului să ocupe spațiul rămas */
-            padding: 0;
-        }
+.nav-menu {
+    /* FLEXBOX pentru navigare */
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .profile-header-section {
-            background-color: var(--color-background-grey);
-            padding: 50px 5%;
-            text-align: center;
-            margin-bottom: 40px;
-        }
+.nav-menu a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s;
+}
 
-        .profile-title {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color-text-dark);
-            font-size: 2.5em;
-            margin: 0;
-        }
+.nav-menu a:hover {
+    color: var(--color-secondary-orange);
+}
 
-        .profile-card {
-            max-width: 600px;
-            margin: 0 auto 60px auto; /* Centrat și spațiu jos */
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px; /* Colțuri mai rotunjite */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Umbră mai pronunțată și modernă */
-        }
+.nav-menu .active a {
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-secondary-orange);
+}
 
-        .form-title {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color-text-dark);
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.2em;
-        }
+/* GRID pentru MAIN și ASIDE */
+#grid-wrapper {
+    grid-area: main;
+    /* CSS GRID pentru main și aside */
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-areas: "content sidebar";
+    gap: 2.5rem;
+    padding: 2.5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
 
-        .form-group {
-            margin-bottom: 20px; /* Spațiu mai mare */
-        }
+main {
+    grid-area: content;
+}
 
-        .form-label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 700; /* Mai gros */
-            font-size: 0.95em;
-        }
+.side-info {
+    grid-area: sidebar;
+    padding: 1.5rem;
+    background: var(--color-text-light);
+    border-radius: 8px;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-        .form-input {
-            width: 100%;
-            padding: 12px; /* Padding mai mare */
-            border: 1px solid #cce; /* Culoare mai subtilă pentru chenar */
-            border-radius: 5px; 
-            box-sizing: border-box; 
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
+.side-info h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-primary-blue);
+}
 
-        .form-input:focus {
-            border-color: var(--color-primary-blue);
-            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.2); /* Efect de focus modern */
-            outline: none;
-        }
-        
-        .form-text {
-            display: block;
-            margin-top: 5px;
-            font-size: 0.85em;
-            color: #6c757d;
-        }
+.side-info ul {
+    list-style: none;
+}
 
-        .button-container {
-            display: flex;
-            gap: 15px; /* Spațiu mai mare între butoane */
-            margin-top: 20px;
-            justify-content: flex-start; /* Aliniere la stânga */
-        }
+.side-info li {
+    padding: 0.5rem 0;
+}
 
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--color-text-light);
-            font-weight: 700;
-            transition: background-color 0.3s, transform 0.1s;
-        }
+.side-info a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: color 0.3s;
+}
 
-        .btn:active {
-            transform: scale(0.98);
-        }
+.side-info a:hover {
+    color: var(--color-primary-blue);
+}
 
-        .btn-primary {
-            background-color: var(--color-primary-blue);
-        }
-        .btn-primary:hover {
-            background-color: #303f9f;
-        }
+/* PROFILE SECTIONS */
+.profile-header-section {
+    padding: 1.5rem;
+    background-color: var(--color-background-grey);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
 
-        .btn-danger {
-            background-color: var(--color-danger);
-        }
-        .btn-danger:hover {
-            background-color: var(--color-danger-hover);
-        }
+.profile-title {
+    font-size: 2em;
+    color: var(--color-primary-blue);
+}
 
-        /* --- STILURI MODAL (Ajustate pentru a se potrivi cu noul stil) --- */
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: none; 
-            z-index: 1000;
-        }
-        .modal {
-            background-color: white;
-            border-radius: 8px;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 450px;
-            z-index: 1001;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
-            display: none; 
-        }
-        .modal-header {
-            padding: 15px 20px;
-            background-color: var(--color-danger); /* Culoarea roșie */
-            color: white;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .modal-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1em;
-            margin: 0;
-        }
-        .modal-body {
-            padding: 20px;
-            font-size: 1.05em;
-        }
-        .modal-footer {
-            padding: 15px 20px;
-            border-top: 1px solid #eee;
-            text-align: right;
-        }
-        .btn-secondary { /* Adăugat pentru butonul de Anulare din modal */
-            background-color: #6c757d;
-        }
-        .btn-secondary:hover {
-            background-color: #5a6268;
-        }
+.profile-card {
+    background-color: var(--color-text-light);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-dark);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.75rem;
+}
+
+/* FLEXBOX pentru formular */
+.form-group-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.form-group {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary-blue);
+    outline: none;
+}
+
+.form-actions {
+    flex-basis: 100%;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.account-actions {
+    /* FLEXBOX pentru butoane */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.account-actions .form-title {
+    flex-basis: 100%;
+}
+
+/* BUTOANE */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--color-primary-blue);
+    color: var(--color-text-light);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: var(--color-text-light);
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-text-light);
+}
+
+.btn-primary:hover { 
+    background-color: #303f9f; 
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover { 
+    background-color: #5a6268; 
+    transform: translateY(-2px);
+}
+
+.btn-danger:hover { 
+    background-color: #c82333; 
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    grid-area: footer;
+    background-color: var(--color-primary-blue);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* BUTON "MERGI SUS" */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-secondary-orange);
+    color: var(--color-text-light);
+    padding: 0.75rem 1rem;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: #e68a00;
+    transform: scale(1.1);
+}
+
+/* MODAL */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: var(--color-text-light);
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 450px;
+    z-index: 1001;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    background-color: var(--color-danger);
+    color: var(--color-text-light);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    font-size: 1.05em;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+/* RESPONSIVE DESIGN (@media max-width: 900px) */
+@media screen and (max-width: 900px) {
+    /* Grid layout devine o singură coloană */
+    #grid-wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "sidebar"
+            "content";
+        gap: 1.5rem;
+        padding: 1.5rem 5%;
+    }
+    
+    .side-info {
+        order: 1;
+    }
+    
+    main {
+        order: 2;
+    }
+    
+    /* Navigare adaptivă */
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    /* Formular vertical */
+    .form-group-grid {
+        flex-direction: column;
+    }
+    
+    .form-group {
+        flex: 1 1 auto;
+    }
+    
+    /* Butoane adaptate */
+    .account-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .account-actions button {
+        width: 100%;
+    }
+    
+    /* Fonturi adaptate pentru mobil */
+    body {
+        font-size: 0.95rem;
+    }
+    
+    .profile-title {
+        font-size: 1.6em;
+    }
+    
+    .form-title {
+        font-size: 1.2rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    /* Header adaptiv */
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
