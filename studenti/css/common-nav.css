@@ -1,3 +1,39 @@
+/* === ADĂUGAT: Variabilele globale (mutate din index.css) === */
+:root {
+    --color-primary-blue: #0056b3;
+    --color-secondary-orange: #ff9900;
+    --text-color: #333;
+    --bg-light: #f4f4f4;
+    --color-text-light: #ffffff;
+}
+
+/* === ADĂUGAT: Resetare globală (mutată din index.css) === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* === ADĂUGAT: Structura globală a paginii (mutată din index.css) === */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--color-text-light); /* Acum putem folosi variabila corectă */
+    
+    /* CSS GRID pentru structura principală */
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    min-height: 100vh;
+}
+
+
+/* === Conținutul original al common-nav.css === */
 
 /* HEADER */
 .main-header {
@@ -35,14 +71,14 @@
 }
 
 .cta-button:hover {
-    background: #e68a00; /* Folosesc valoarea directă din account.css */
+    background: #e68a00;
     transform: translateY(-2px);
 }
 
 /* NAV */
 .main-nav-bar {
     grid-area: nav;
-    background-color: var(--color-primary-blue);
+    background-color: var(--color-primary-blue); /* Acum va funcționa! */
     padding: 0.75rem 0;
 }
 
@@ -82,4 +118,18 @@
         justify-content: center;
         gap: 1rem;
     }
+}
+
+/* === ADĂUGAT: Reguli globale pentru plasarea în grid === */
+/* Plasează wrapper-ul de conținut în zona principală a grilei body */
+#main-content-wrapper,
+#grid-wrapper {
+    grid-area: main;
+}
+
+/* Plasează footer-ul în zona de footer a grilei body */
+footer,
+.main-footer {
+    /* Folosim ambii selectori pentru a prinde și index.php și dashboard.php */
+    grid-area: footer;
 }

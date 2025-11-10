@@ -1,103 +1,20 @@
-:root {
-    --color-primary-blue: #0056b3;  /* Era --primary-color */
-    --color-secondary-orange: #ff9900;  /* Era --accent-color */
-    --text-color: #333;
-    --bg-light: #f4f4f4;
-    --color-text-light: #ffffff;  /* Era --white */
-}
+/* === ȘTERS: Blocul :root a fost mutat în common-nav.css === */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background: var(--white);
-    /* CSS GRID pentru structura principală */
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
-    grid-template-areas:
-        "header"
-        "nav"
-        "main"
-        "footer";
-    min-height: 100vh;
-}
+/* === ȘTERS: Regulile * și body au fost mutate în common-nav.css === */
 
 h1, h2, h3 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color);
+    color: var(--color-primary-blue); /* Se va folosi variabila din common-nav.css */
 }
 
-/* HEADER */
-.main-header {
-    grid-area: header;
-    background: var(--white);
-    padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--primary-color);
-}
-
-.cta-button {
-    background: var(--accent-color);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.cta-button:hover {
-    background: #e68a00;
-}
-
-/* NAV */
-.main-nav-bar {
-    grid-area: nav;
-    background: var(--primary-color);
-    padding: 0.75rem 0;
-}
-
-.main-nav-bar .container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 2rem;
-}
-
-.main-nav-bar a {
-    color: var(--white);
-    text-decoration: none;
-    padding: 0.5rem 0;
-    transition: color 0.3s;
-}
-
-.main-nav-bar a:hover {
-    color: var(--accent-color);
-}
+/* SECȚIUNILE HEADER ȘI NAV AU FOST ELIMINATE 
+PENTRU A FOLOSI COMMON-NAV.CSS 
+*/
 
 /* MAIN CONTENT cu GRID (main + aside) */
 #main-content-wrapper { 
-    grid-area: main;
+    /* === ȘTERS: "grid-area: main;" este acum în common-nav.css === */
+    
     /* CSS GRID pentru main și aside */
     display: grid;
     grid-template-columns: 1fr 300px;
@@ -116,7 +33,7 @@ main {
 aside {
     grid-area: sidebar;
     padding: 1.25rem;
-    background: var(--bg-light);
+    background: var(--bg-light); /* Se va folosi variabila din common-nav.css */
     border-radius: 8px;
     height: fit-content;
 }
@@ -130,7 +47,7 @@ aside h3 {
 #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
                 url('https://picsum.photos/1600/600') center/cover no-repeat;
-    color: var(--white);
+    color: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
     min-height: 50vh;
     display: flex;
     align-items: center;
@@ -147,7 +64,7 @@ aside h3 {
 #hero h1 {
     font-size: 2.5em;
     margin-bottom: 0.5em;
-    color: var(--white);
+    color: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
 }
 
 #hero p {
@@ -157,7 +74,7 @@ aside h3 {
 
 /* FILTER BAR */
 #filter-bar {
-    background: var(--bg-light);
+    background: var(--bg-light); /* Se va folosi variabila din common-nav.css */
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 2.5rem;
@@ -184,8 +101,8 @@ aside h3 {
 
 .filter-group button {
     padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: var(--white);
+    background: var(--color-primary-blue); /* Se va folosi variabila din common-nav.css */
+    color: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -222,7 +139,7 @@ aside h3 {
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    background: var(--white);
+    background: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
 }
 
 .car-card:hover {
@@ -260,9 +177,9 @@ aside h3 {
 
 /* FOOTER */
 footer {
-    grid-area: footer;
-    background: var(--primary-color);
-    color: var(--white);
+    /* === ȘTERS: "grid-area: footer;" este acum în common-nav.css === */
+    background: var(--color-primary-blue); /* Se va folosi variabila din common-nav.css */
+    color: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
     padding: 2rem 0;
     text-align: center;
 }
@@ -272,8 +189,8 @@ footer {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--accent-color);
-    color: var(--white);
+    background-color: var(--color-secondary-orange); /* Se va folosi variabila din common-nav.css */
+    color: var(--color-text-light); /* Se va folosi variabila din common-nav.css */
     padding: 0.75rem 1rem;
     border-radius: 50%;
     text-decoration: none;

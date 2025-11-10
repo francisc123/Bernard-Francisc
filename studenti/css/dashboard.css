@@ -30,73 +30,10 @@ body {
     min-height: 100vh;
 }
 
-/* HEADER */
-.main-header {
-    grid-area: header;
-    background-color: var(--color-light);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    padding: 1rem 0;
-}
+/* SECȚIUNILE HEADER ȘI NAV AU FOST ELIMINATE 
+PENTRU A FOLOSI COMMON-NAV.CSS 
+*/
 
-.header-container {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    margin: 0 auto;
-    max-width: 1400px;
-    padding: 0 1.5rem;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    color: var(--color-primary); 
-}
-
-.cta-button {
-    background-color: var(--color-accent);
-    color: var(--color-light) !important;
-    padding: 0.75rem 1.25rem;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #e67e00;
-    transform: translateY(-2px);
-}
-
-/* NAV */
-.main-nav-bar {
-    grid-area: nav;
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    padding: 0.75rem 0;
-}
-
-.main-nav {
-    /* FLEXBOX pentru navigare */
-    display: flex; 
-    gap: 1.5rem; 
-    justify-content: flex-start; 
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: var(--color-text);
-    padding: 0.5rem 0.2rem;
-    transition: color 0.3s;
-}
-
-.main-nav a:hover {
-    color: var(--color-primary);
-}
 
 /* GRID pentru MAIN și ASIDE */
 #grid-wrapper {
